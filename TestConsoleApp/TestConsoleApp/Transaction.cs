@@ -3,8 +3,9 @@ using ClassLibrary.Interfaces;
 
 namespace TestConsoleApp
 {
-    public class Transaction : BaseTestObject
+    public class Transaction : BaseTestObject<int>
     {
+        public DateTime TransactionDate { get; set; }
 
         public Transaction(int id = -1, DateTime transactionDate = default, decimal amount = -1)
         {

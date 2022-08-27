@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tests
 {
-    public class ConsoleRepositorytests
+    public class ConsoleRepositoryTests
     {
         [Fact]
         public void AddingTransactionToRepository()
@@ -14,7 +14,7 @@ namespace Tests
             bool isSuccedeed = true;
 
             Transaction transaction = CreateTransaction();
-            TransactionRepository repository = new TransactionRepository();
+            TransactionRepository repository = new();
 
             try
             {
@@ -27,6 +27,7 @@ namespace Tests
 
             Assert.True(isSuccedeed);
         }
+
         [Fact]
         public void AddingTransactionDuplicateToRepository_GettingArgumentException()
         {
@@ -43,6 +44,7 @@ namespace Tests
             });
 
         }
+
         [Fact]
         public void GettingTransaction_id_10_ReturnNotNull()
         {
@@ -54,6 +56,7 @@ namespace Tests
 
             Assert.NotNull(transaction);
         }
+
         [Fact]
         public void GettingTransaction_id_15_ThrowsArgumentException()
         {
@@ -63,7 +66,7 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => { repository.Get(15); });
         }
 
-        private Transaction CreateTransaction(int id = 10)
+        private static Transaction CreateTransaction(int id = 10)
         {
             decimal amount = 12.2m;
             DateTime date = DateTime.Now;

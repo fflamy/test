@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace TestConsoleApp
 {
-    public class TransactionRepository : ITestObjectRepositry<Transaction>
+    public class TransactionRepository : ITestObjectRepositry<Transaction,int>
     {
-        private List<Transaction> transactions = new List<Transaction>();
+        private readonly List<Transaction> transactions = new();
         /// <summary>
         /// Adding transaction to inner collection
         /// </summary>
